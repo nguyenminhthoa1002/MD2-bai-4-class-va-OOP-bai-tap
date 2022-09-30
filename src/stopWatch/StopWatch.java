@@ -3,27 +3,31 @@ package stopWatch;
 import java.util.Date;
 
 public class StopWatch {
-    private Date startTime;
-    private Date endTime;
+    private long startTime;
+    private long endTime;
 
-    public StopWatch(Date startTime, Date endTime) {
-        this.startTime = startTime;
-        this.endTime = endTime;
-    }
-
-    public Date getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
+    public long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public StopWatch() {
+        this.startTime = System.currentTimeMillis();
+    }
+
+    public void start() {
+        this.startTime = System.currentTimeMillis();
+    }
+
+    public void stop() {
+        this.endTime = System.currentTimeMillis();
+    }
+
+    public long getElapsedTime() {
+        long elapsedTime = this.endTime - this.startTime;
+        return elapsedTime;
     }
 }
